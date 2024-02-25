@@ -1,0 +1,16 @@
+{
+  "id": "product_index",
+  "type": "SharedSlice",
+  "name": "ProductIndex",
+  "description": "ProductIndex",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

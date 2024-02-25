@@ -10,6 +10,9 @@ const config = {
     "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
+  corePlugins: {
+    aspectRatio: false,
+  },
   theme: {
     container: {
       center: true,
@@ -75,7 +78,11 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/typography"),
+  ],
 } satisfies Config;
 
 export default config;

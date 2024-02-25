@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter as FontSans } from "next/font/google";
+import { Montserrat as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import clsx from "clsx";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(
+        className={clsx(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}

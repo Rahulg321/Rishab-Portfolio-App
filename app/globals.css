@@ -107,7 +107,7 @@
 }
 
 .block-space {
-  padding-block: min(12vh, 17rem);
+  padding-block: min(6vh, 10rem);
 }
 
 .block-space-mini {

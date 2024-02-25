@@ -9,13 +9,16 @@ const ThemeSwitchButton = () => {
   const { setTheme } = useTheme();
   return (
     <div className="flex gap-4">
-      <div onClick={() => setTheme("light")} className="cursor-pointer">
+      <div onClick={() => setTheme("light")} className="cursor-pointer text-xl">
         <FaRegSun />
       </div>
-      <div onClick={() => setTheme("dark")} className="cursor-pointer">
+      <div onClick={() => setTheme("dark")} className="cursor-pointer text-xl">
         <FaMoon />
       </div>
-      <div onClick={() => setTheme("system")} className="cursor-pointer">
+      <div
+        onClick={() => setTheme("system")}
+        className="cursor-pointer text-xl"
+      >
         <RiComputerLine />
       </div>
     </div>
