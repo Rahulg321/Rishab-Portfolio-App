@@ -17,6 +17,18 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "photo_index": {
+              "type": "SharedSlice"
+            },
+            "gallery_hero": {
+              "type": "SharedSlice"
+            },
+            "product_detail": {
+              "type": "SharedSlice"
+            },
+            "contact_form_section": {
+              "type": "SharedSlice"
+            },
             "product_index": {
               "type": "SharedSlice"
             },

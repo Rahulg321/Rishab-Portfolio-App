@@ -4,7 +4,13 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = ProductIndexSlice | HeroSlice;
+type PageDocumentDataSlicesSlice =
+  | PhotoIndexSlice
+  | GalleryHeroSlice
+  | ProductDetailSlice
+  | ContactFormSectionSlice
+  | ProductIndexSlice
+  | HeroSlice;
 
 /**
  * Content for Page documents
@@ -188,6 +194,116 @@ export type ProductDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument | ProductDocument;
 
 /**
+ * Primary content in *ContactFormSection → Primary*
+ */
+export interface ContactFormSectionSliceDefaultPrimary {
+  /**
+   * Heading field in *ContactFormSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_section.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *ContactFormSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_section.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ContactFormSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactFormSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactFormSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactFormSection*
+ */
+type ContactFormSectionSliceVariation = ContactFormSectionSliceDefault;
+
+/**
+ * ContactFormSection Shared Slice
+ *
+ * - **API ID**: `contact_form_section`
+ * - **Description**: ContactFormSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactFormSectionSlice = prismic.SharedSlice<
+  "contact_form_section",
+  ContactFormSectionSliceVariation
+>;
+
+/**
+ * Primary content in *GalleryHero → Primary*
+ */
+export interface GalleryHeroSliceDefaultPrimary {
+  /**
+   * Heading field in *GalleryHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *GalleryHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_hero.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for GalleryHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GalleryHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<GalleryHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *GalleryHero*
+ */
+type GalleryHeroSliceVariation = GalleryHeroSliceDefault;
+
+/**
+ * GalleryHero Shared Slice
+ *
+ * - **API ID**: `gallery_hero`
+ * - **Description**: GalleryHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GalleryHeroSlice = prismic.SharedSlice<
+  "gallery_hero",
+  GalleryHeroSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -238,6 +354,51 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *PhotoIndex → Items*
+ */
+export interface PhotoIndexSliceDefaultItem {
+  /**
+   * GalleryImage field in *PhotoIndex → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: photo_index.items[].galleryimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  galleryimage: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for PhotoIndex Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PhotoIndexSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<PhotoIndexSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *PhotoIndex*
+ */
+type PhotoIndexSliceVariation = PhotoIndexSliceDefault;
+
+/**
+ * PhotoIndex Shared Slice
+ *
+ * - **API ID**: `photo_index`
+ * - **Description**: PhotoIndex
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PhotoIndexSlice = prismic.SharedSlice<
+  "photo_index",
+  PhotoIndexSliceVariation
+>;
 
 /**
  * Default variation for ProductDetail Slice
@@ -316,10 +477,22 @@ declare module "@prismicio/client" {
       ProductDocumentData,
       ProductDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ContactFormSectionSlice,
+      ContactFormSectionSliceDefaultPrimary,
+      ContactFormSectionSliceVariation,
+      ContactFormSectionSliceDefault,
+      GalleryHeroSlice,
+      GalleryHeroSliceDefaultPrimary,
+      GalleryHeroSliceVariation,
+      GalleryHeroSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      PhotoIndexSlice,
+      PhotoIndexSliceDefaultItem,
+      PhotoIndexSliceVariation,
+      PhotoIndexSliceDefault,
       ProductDetailSlice,
       ProductDetailSliceVariation,
       ProductDetailSliceDefault,

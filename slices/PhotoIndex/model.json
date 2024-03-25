@@ -1,0 +1,27 @@
+{
+  "id": "photo_index",
+  "type": "SharedSlice",
+  "name": "PhotoIndex",
+  "description": "PhotoIndex",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "galleryimage": {
+          "type": "Image",
+          "config": {
+            "label": "GalleryImage",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

@@ -13,12 +13,24 @@ const Footer = () => {
       navlabel: "Products",
     },
     {
+      navlink: "/blogs",
+      navlabel: "Blogs",
+    },
+    {
+      navlink: "/gallery",
+      navlabel: "Gallery",
+    },
+    {
       navlink: "/about",
       navlabel: "About",
     },
     {
       navlink: "/cart",
       navlabel: "Cart",
+    },
+    {
+      navlink: "/contact",
+      navlabel: "Contact",
     },
   ];
   return (

@@ -12,8 +12,8 @@ const Header = () => {
           <MenuSheet />
         </div>
         <div>
-          <Link href={"/home"} className="text-2xl">
-            Medusa Store
+          <Link href={"/home"} className="text-2xl font-bold">
+            Rishab Store
           </Link>
         </div>
         <div>
