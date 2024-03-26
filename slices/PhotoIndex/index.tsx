@@ -1,6 +1,8 @@
+import GalleryImageCard from "@/components/GalleryImageCard";
 import { Content } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
-
+import React from "react";
 /**
  * Props for `PhotoIndex`.
  */
@@ -14,9 +16,33 @@ const PhotoIndex = ({ slice }: PhotoIndexProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className=""
     >
-      Placeholder component for photo_index (variation: {slice.variation})
-      Slices
+      <div className="big-container">
+        <div className="grid grid-cols-3">
+          {slice.items.map((item, index) => {
+            return (
+              <React.Fragment key={index}>
+                <PrismicNextImage field={item.galleryimage} />
+              </React.Fragment>
+            );
+          })}
+          {slice.items.map((item, index) => {
+            return (
+              <React.Fragment key={index}>
+                <PrismicNextImage field={item.galleryimage} />
+              </React.Fragment>
+            );
+          })}
+          {slice.items.map((item, index) => {
+            return (
+              <React.Fragment key={index}>
+                <PrismicNextImage field={item.galleryimage} />
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 };

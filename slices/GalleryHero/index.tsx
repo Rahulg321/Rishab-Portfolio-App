@@ -1,3 +1,4 @@
+import GalleryImageCard from "@/components/GalleryImageCard";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
@@ -19,7 +20,6 @@ const GalleryHero = ({ slice }: GalleryHeroProps): JSX.Element => {
       <div className="big-container">
         {slice.primary.heading}
         {slice.primary.tagline}
-        <div className="grid"></div>
       </div>
     </section>
   );
